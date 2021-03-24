@@ -1,23 +1,46 @@
-import logo from './logo.svg';
+import React, {useState, useEffect} from 'react';
+
+import Formulario from './Formulario/Formulario';
+import Lyrics from './Lyrics/Lyrics';
+
+import axios from 'axios';
+
 import './App.css';
 
 function App() {
+
+  const [ busquedaobjeto , guardarBusquedaObjeto ] = useState({});
+
+  const [ lyrics, guardarLyrics] = useState('')
+
+  
+  useEffect(() => {
+    
+    if(busquedaobjeto.length === 0) return;
+    
+    const consultarApiLetras = async() => {
+      
+      const {artist, song} = busquedaobjeto;
+
+      const url= `https://api.lyrics.ovh/v1/${artist}/${song}`;
+
+      const resultado = await axios(url);
+      guardarLyrics(resultado.data.lyrics) 
+    }
+    consultarApiLetras();
+  }, [busquedaobjeto])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="Main-Container">
+
+      <Formulario 
+         guardarBusquedaObjeto={ guardarBusquedaObjeto }
+      />
+
+      <Lyrics
+        lyrics={lyrics}
+      />
+
     </div>
   );
 }
