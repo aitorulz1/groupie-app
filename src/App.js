@@ -49,7 +49,7 @@ function App() {
         guardarCover={guardarCover}
       /> :
       
-        <div>
+        <div className="Form-Page-Container">
         
             <Formulario 
               guardarBusquedaObjeto={ guardarBusquedaObjeto }

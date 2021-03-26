@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import LogoImage from '../../assets/images/lips-logo.png';
+
 import './Formulario.css';
 
          
@@ -34,9 +36,9 @@ import './Formulario.css';
     }
 
     return (
-        <div>
+        <div className="form-container">
 
-                { error ? <p className=''>Completa los datos'</p> : null }
+                { error ? <p className=''>Completa los datos</p> : null }
 
                 <form
                     onSubmit={onSubmit}

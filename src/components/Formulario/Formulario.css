@@ -1,0 +1,23 @@
+.form-container {
+    width: 97%;
+    background-color: #4a4a4a;
+    background: linear-gradient(45deg, #1e2325 0%, #4a4a4a 100%);
+    display: table;
+    padding: 9px 0px;
+    margin: 0 auto;
+    margin-top: 2%;
+    text-align: center;
+    border-radius: 32px;
+}
+
+input.artist {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #fff;
+}
+
+input.song {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #fff;
+}

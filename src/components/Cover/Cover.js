@@ -8,11 +8,9 @@ import Go from '../../assets/images/go.png';
 
 export default function Cover({guardarCover}) {
 
-    
-    
-    const gotoForm = () => {
-        guardarCover(false)
-    }
+        const gotoForm = () => {
+            guardarCover(false)
+        }
 
     return (
         <div className="cover-container">
@@ -49,7 +47,7 @@ export default function Cover({guardarCover}) {
                             type="checkbox" 
                             name="check" 
                             value="check" 
-                            onClick={gotoForm}
+                            onClick={setTimeout(gotoForm, 3000)}
                         />
                         
                         <div class="indicator"></div>
