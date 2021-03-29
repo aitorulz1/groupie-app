@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 
-import LogoImage from '../../assets/images/lips-logo.png';
+import LogoBW from '../../assets/images/logo-bw-completed.png';
+import LogoBWW from '../../assets/images/logo-resplandor.png';
 
 import './Formulario.css';
 
          
-         export default function Formulario({guardarBusquedaObjeto}) {
+export default function Formulario({guardarBusquedaObjeto, guardarShowInfo}) {
 
     const [ busqueda, guardarBusqueda] = useState({
         artist:'',
@@ -31,19 +32,28 @@ import './Formulario.css';
         }
 
         guardarError(false);
-
+        guardarShowInfo(true)
         guardarBusquedaObjeto(busqueda);
     }
 
     return (
-        <div className="form-container">
+
+        <div className="Form-Page-Container">
+
+            <div className="logo-bw-container">
+              <img src={LogoBWW} />
+            </div>
+        
+            <div className="form-container-dad">
 
                 { error ? <p className=''>Completa los datos</p> : null }
 
                 <form
                     onSubmit={onSubmit}
+                    className="formulario"
                 >
-
+           
+                <div className="form-container">
 
                     <input
                         type='text'
@@ -52,7 +62,11 @@ import './Formulario.css';
                         name='artist'
                         onChange={onChange}
                     />
+
+                </div>
                     
+                <div className="form-container">
+                
                     <input
                         type='text'
                         placeholder='song'
@@ -60,6 +74,8 @@ import './Formulario.css';
                         name='song'
                         onChange={onChange}
                     />
+            
+                </div>
 
                     <input
                         type='submit'
@@ -68,7 +84,10 @@ import './Formulario.css';
                     />
 
                 </form>
-            
+
+            </div>
+   
         </div>
+        
     )
 }

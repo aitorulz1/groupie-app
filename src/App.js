@@ -5,6 +5,8 @@ import Lyrics from './components/Lyrics/Lyrics';
 import Info from './components/Info/Info';
 import Cover from './components/Cover/Cover';
 
+
+
 import axios from 'axios';
 
 import './App.css';
@@ -17,6 +19,9 @@ function App() {
   const [ informacion, guardarInformacion ] = useState({});
 
   const [ cover, guardarCover ] = useState(true);
+
+  const [ showinfo, guardarShowInfo ] = useState(false);
+  const [ loading, guardarLoading ] = useState(false);
 
   
   useEffect(() => {
@@ -49,10 +54,11 @@ function App() {
         guardarCover={guardarCover}
       /> :
       
-        <div className="Form-Page-Container">
-        
+        <div>
+ 
             <Formulario 
               guardarBusquedaObjeto={ guardarBusquedaObjeto }
+              guardarShowInfo= {guardarShowInfo}
             />
 
             <Lyrics

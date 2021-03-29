@@ -47,7 +47,8 @@ export default function Cover({guardarCover}) {
                             type="checkbox" 
                             name="check" 
                             value="check" 
-                            onClick={setTimeout(gotoForm, 3000)}
+                            onClick={gotoForm}
+                            /*onClick={setTimeout(gotoForm, 3000)}*/
                         />
                         
                         <div class="indicator"></div>
