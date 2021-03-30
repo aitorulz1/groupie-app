@@ -6,14 +6,18 @@ import LogoTitle from '../../assets/images/groupies-logo.png';
 import LogoImage from '../../assets/images/lips-logo.png';
 import Go from '../../assets/images/go.png';
 
-export default function Cover({guardarCover}) {
+export default function Cover({form, guardarForm}) {
 
         const gotoForm = () => {
-            guardarCover(false)
+            if(form === false) {
+                guardarForm(true) 
+            } else if (form === true) {
+                guardarForm(false)
+            }
         }
 
     return (
-        <div className="cover-container">
+       
             <div className="cover-content">
 
                 <div className="lips-container">
@@ -58,6 +62,6 @@ export default function Cover({guardarCover}) {
              
             
             </div>
-        </div>
+   
     )
 }

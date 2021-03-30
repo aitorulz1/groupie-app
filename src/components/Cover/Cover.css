@@ -12,12 +12,12 @@
     margin: 0 auto;
     width: 100%;
     max-width: 960px;
-    padding: 7.5% 0%;
+    padding: 2.5% 0%;
     text-align: center;
 }
 
 .lips-container img{
-    width: 150px;
+    width: 125px;
     padding-top: 0%;
 }
 
@@ -39,11 +39,11 @@
 }
 
 .whatis{
-  padding: 7.5% 0%;
+  padding: 5% 0%;
   font-size: 14px;
   font-weight: 500;
   font-family: revert;
-  color: #5f030b;
+  color: #9e9e9e;
   letter-spacing: 1px;
 }
 

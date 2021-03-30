@@ -4,6 +4,7 @@ import Formulario from './components/Formulario/Formulario';
 import Lyrics from './components/Lyrics/Lyrics';
 import Info from './components/Info/Info';
 import Cover from './components/Cover/Cover';
+import Spinner from  './components/Spinner/Spinner';
 
 
 
@@ -18,16 +19,17 @@ function App() {
   const [ lyrics, guardarLyrics] = useState('');
   const [ informacion, guardarInformacion ] = useState({});
 
-  const [ cover, guardarCover ] = useState(true);
+  const [ form, guardarForm ] = useState(false);
 
   const [ showinfo, guardarShowInfo ] = useState(false);
-  const [ loading, guardarLoading ] = useState(false);
+  const [ loading, guardarLoading ] = useState(true);
+
 
   
   useEffect(() => {
     
     if(Object.keys(busquedaobjeto).length === 0) return;
-    
+         
     const consultarApiLetras = async() => {
       
       const {artist, song} = busquedaobjeto;
@@ -42,37 +44,57 @@ function App() {
 
       guardarLyrics(letra.data.lyrics)
       guardarInformacion(info.data.artists[0])
+
+  
       console.log(info.data.artists[0])
     }
     consultarApiLetras();
   }, [busquedaobjeto])
 
+  console.log(lyrics)
+
   return (
     <div className="Main-Container">
 
-      { cover ? <Cover 
-        guardarCover={guardarCover}
-      /> :
-      
-        <div>
- 
-            <Formulario 
-              guardarBusquedaObjeto={ guardarBusquedaObjeto }
-              guardarShowInfo= {guardarShowInfo}
-            />
+        <div className="cover-container">
 
-            <Lyrics
-              lyrics={lyrics}
-            />
+            <Cover 
+              guardarForm={guardarForm}
+              form={form}
+            /> 
 
-            <Info
-              informacion={informacion}
-            />
+            {form ?
+
+            <div>
+            
+                <Formulario 
+                  guardarBusquedaObjeto={ guardarBusquedaObjeto }
+                  guardarShowInfo= {guardarShowInfo}
+                />
+
+                { loading ? <Spinner /> : null }
+
+                    <div>
+
+                      <Lyrics
+                        lyrics={lyrics}
+                      />
+
+                      <Info
+                        informacion={informacion}
+                      />
+
+                    </div>
+
+            </div>
+
+            : null}
 
         </div>
 
-      }
+        
 
+     
     </div>
   );
 }

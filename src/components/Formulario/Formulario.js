@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
 
-import LogoBW from '../../assets/images/logo-bw-completed.png';
-import LogoBWW from '../../assets/images/logo-resplandor.png';
-
 import './Formulario.css';
 
          
@@ -34,16 +31,13 @@ export default function Formulario({guardarBusquedaObjeto, guardarShowInfo}) {
         guardarError(false);
         guardarShowInfo(true)
         guardarBusquedaObjeto(busqueda);
+        console.log(busqueda)
     }
 
     return (
 
         <div className="Form-Page-Container">
 
-            <div className="logo-bw-container">
-              <img src={LogoBWW} />
-            </div>
-        
             <div className="form-container-dad">
 
                 { error ? <p className=''>Completa los datos</p> : null }
@@ -53,6 +47,7 @@ export default function Formulario({guardarBusquedaObjeto, guardarShowInfo}) {
                     className="formulario"
                 >
            
+                <label className="title">Choose an Artist</label>
                 <div className="form-container">
 
                     <input
@@ -66,6 +61,7 @@ export default function Formulario({guardarBusquedaObjeto, guardarShowInfo}) {
                 </div>
                     
                 <div className="form-container">
+                <label className="title">Choose one of it songs</label>
                 
                     <input
                         type='text'
@@ -84,8 +80,10 @@ export default function Formulario({guardarBusquedaObjeto, guardarShowInfo}) {
                     />
 
                 </form>
+           
 
             </div>
+
    
         </div>
         
