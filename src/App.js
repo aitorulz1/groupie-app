@@ -1,10 +1,15 @@
 import React, {useState, useEffect} from 'react';
 
+import Logo from './assets/images/logo-bw-completed.png'
+
 import Formulario from './components/Formulario/Formulario';
 import Lyrics from './components/Lyrics/Lyrics';
 import Info from './components/Info/Info';
 import Cover from './components/Cover/Cover';
 import Spinner from  './components/Spinner/Spinner';
+
+import ButtonInfo from './components/Buttons/ButtonInfo';
+import ButtonLyrics from './components/Buttons/ButtonLyrics';
 
 
 
@@ -22,7 +27,12 @@ function App() {
   const [ form, guardarForm ] = useState(false);
 
   const [ showinfo, guardarShowInfo ] = useState(false);
-  const [ loading, guardarLoading ] = useState(true);
+  const [ showbuttons, guardarShowButtons ] = useState(false);
+  const [ loading, guardarLoading ] = useState(false);
+
+  const [ verlyrics, guardarVerLyrics ] = useState(false);
+  const [ verinfo, guardarVerInfo ] = useState(false);
+  
 
 
   
@@ -42,11 +52,12 @@ function App() {
         axios(urlinfo)
       ]);
 
-      guardarLyrics(letra.data.lyrics)
-      guardarInformacion(info.data.artists[0])
+        guardarLyrics(letra.data.lyrics)
+        guardarInformacion(info.data.artists[0])
 
-  
-      console.log(info.data.artists[0])
+    
+        console.log(info.data.artists[0])
+
     }
     consultarApiLetras();
   }, [busquedaobjeto])
@@ -65,35 +76,85 @@ function App() {
 
             {form ?
 
-            <div>
-            
-                <Formulario 
-                  guardarBusquedaObjeto={ guardarBusquedaObjeto }
-                  guardarShowInfo= {guardarShowInfo}
-                />
-
-                { loading ? <Spinner /> : null }
+                <div>
+                
+                    <Formulario 
+                      guardarBusquedaObjeto={ guardarBusquedaObjeto }
+                      guardarShowInfo= {guardarShowInfo}
+                      guardarLoading={guardarLoading}
+                      guardarShowButtons={guardarShowButtons}
+                    />
 
                     <div>
 
-                      <Lyrics
-                        lyrics={lyrics}
-                      />
+                      {showbuttons ?
 
-                      <Info
-                        informacion={informacion}
-                      />
+                          <div className="info-container">
 
+                              { loading ? <Spinner /> :
+
+                                  <div className="info-fontent">
+
+                                     
+                                      <label className="title">Now you can check either the lyrics of the song you are looking for or the most valuble info of your favorite group</label>
+
+                                          <div className="buttons-conainer">
+                                              
+                                              <div className="">
+                                                <ButtonLyrics
+                                                  guardarVerLyrics={guardarVerLyrics}
+                                                  guardarVerInfo={guardarVerInfo}
+                                                />
+                                              </div>
+                                              
+                                              <div className="">
+                                                <ButtonInfo 
+                                                  guardarVerInfo={guardarVerInfo}
+                                                  guardarVerLyrics={guardarVerLyrics}
+                                                />
+                                              </div>
+
+                                          </div>
+
+                                          <div className="result-container">
+
+                                                {verlyrics ? 
+
+                                                  <Lyrics
+                                                    lyrics={lyrics}
+                                                  /> 
+                                                
+                                                : null}
+                                                
+                                                {verinfo ? 
+
+                                                  <Info
+                                                    informacion={informacion} 
+                                                  />
+
+                                                : null}
+
+                                          </div>
+                                   
+
+                                  </div>
+
+                              }
+
+                          </div> : 
+                      
+                      null}
+
+                    <div className="logo-bw"><img src={Logo} /></div>
+                    
                     </div>
 
-            </div>
+                </div>
 
             : null}
+  
 
         </div>
-
-        
-
      
     </div>
   );

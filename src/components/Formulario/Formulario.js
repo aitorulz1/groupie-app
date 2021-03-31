@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import './Formulario.css';
 
          
-export default function Formulario({guardarBusquedaObjeto, guardarShowInfo}) {
+export default function Formulario({guardarBusquedaObjeto, guardarShowInfo, guardarLoading, guardarShowButtons}) {
 
     const [ busqueda, guardarBusqueda] = useState({
         artist:'',
@@ -29,9 +29,16 @@ export default function Formulario({guardarBusquedaObjeto, guardarShowInfo}) {
         }
 
         guardarError(false);
-        guardarShowInfo(true)
-        guardarBusquedaObjeto(busqueda);
-        console.log(busqueda)
+        guardarLoading(true);
+        guardarShowInfo(true);
+        guardarShowButtons(true)
+        
+
+        setTimeout(() => {
+            guardarLoading(false);
+            guardarBusquedaObjeto(busqueda);
+        }, 3000)
+
     }
 
     return (

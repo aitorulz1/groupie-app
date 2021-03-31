@@ -1,5 +1,39 @@
+.info-container {
+    position: relative;
+    width: 90%;
+    max-width: 1200px;
+    text-align: center;
+    padding: 5% 0%;
+    margin: 0 auto;
+}
+
+.buttons-conainer {
+    position: relative;
+    padding: 2.5%;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 600px;
+    display: table;
+}
+
+.logo-bw {
+    width: 960px;
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+    border-top: 1px solid #fa7d88;
+}
+
+.logo-bw img {
+    width: 100px;
+    padding: 2.5% 0%;
+}
 
 
-
-
-
+.result-container {
+    padding: 2.5% 0%;
+    text-align: justify;
+    margin: 0 auto;
+    width: 80%;
+    line-height: 2;
+}

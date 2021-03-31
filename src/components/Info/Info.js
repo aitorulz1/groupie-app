@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './Info.css';
+
 export default function Info({informacion}) {
 
     if(Object.keys(informacion).length === 0) return null;
@@ -22,12 +24,25 @@ export default function Info({informacion}) {
         strGenre, 
         strFacebook, 
         strTwitter, 
-        strStyle, 
         strWebsite} = informacion;
 
     return (
         <div>
-            <img src={strArtistLogo} />
+            <div className="logo">
+                <img src={strArtistLogo} />
+            </div>
+            
+            <div className="genre">
+                {strArtist} | {strGenre} | {intFormedYear}
+            </div>
+
+            <div className="bio">
+                {strBiographyEN}
+            </div>
+            
+            <div className="banner">
+                <img src={ strArtistBanner} />
+            </div>
         </div>
     )
 }
