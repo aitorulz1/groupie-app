@@ -1,6 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './Info.css';
+
+import fb from '../../assets/rrss/fb-trans.png';
+import twitter from '../../assets/rrss/twitter-trans.png';
+import www from '../../assets/rrss/www-trans.png';
 
 export default function Info({informacion}) {
 
@@ -26,6 +31,8 @@ export default function Info({informacion}) {
         strTwitter, 
         strWebsite} = informacion;
 
+        console.log(informacion)
+
     return (
         <div>
             <div className="logo">
@@ -40,9 +47,29 @@ export default function Info({informacion}) {
                 {strBiographyEN}
             </div>
             
+            <div className="social-container">
+                <div className="social-content">
+
+                <div className="rrss">
+                    <a href={ strFacebook } target="_blank"><img src={fb} className="social-img" /></a>
+                </div>
+
+                <div className="rrss">
+                    <a href={ strTwitter } target="_blank"><img src={twitter} className="social-img" /></a>
+                </div>
+
+                <div className="rrss">
+                    <a href={ strWebsite } target="_blank"><img src={www} className="social-img" /></a>
+                </div>
+            
+                </div>
+            </div>
+
             <div className="banner">
                 <img src={ strArtistBanner} />
             </div>
+
+
         </div>
     )
 }

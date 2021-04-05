@@ -27,3 +27,34 @@
     box-shadow: -8px -4px 8px 0px #ffffff, 8px 4px 12px 0px #d1d9e6, 4px 4px 4px 0px #d1d9e6 inset, -4px -4px 4px 0px #ffffff inset;
     padding: 0px 0px 0px 10px;
 }
+
+.social-container {
+    position: relative;
+    width: 100%;
+    display: table;
+    text-align: center;
+}
+
+.social-content {
+    text-align: center;
+    display: inline-flex;
+}
+
+.rrss {
+    margin-right: 10px;
+}
+
+.social-img {
+    float: left;
+    margin-top: 10px;
+    position: relative;
+    height: 40px;
+    width: 41px;
+    border-radius: 30px;
+    border: none;
+    overflow: hidden;
+    box-shadow: -8px -4px 8px 0px #ffffff, 8px 4px 12px 0px #d1d9e6, 4px 4px 4px 0px #d1d9e6 inset, -4px -4px 4px 0px #ffffff inset;
+    padding: 0px 0px 0px 0px;
+    color: -internal-light-dark(rgb(255, 255, 255), white);
+    margin-right: 3%;
+}

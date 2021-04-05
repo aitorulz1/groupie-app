@@ -64,6 +64,11 @@ function App() {
 
   console.log(lyrics)
 
+  
+        // Mover hacia arriba
+        const goingDown = document.querySelector('.main-wrapper');
+        goingDown.scrollIntoView({behavior: "smooth"});
+
   return (
     <div className="Main-Container">
 
