@@ -14,24 +14,15 @@ export default function Info({informacion}) {
     const { 
         strArtist, 
         intFormedYear, 
-
         strArtistBanner, 
         strArtistLogo, 
-        
-        strBiographyCN, 
-        strBiographyDE, 
         strBiographyEN, 
-        strBiographyES, 
-        strBiographyFR, 
-        strBiographyIT, 
-        strBiographyJP, 
-        
         strGenre, 
         strFacebook, 
         strTwitter, 
         strWebsite} = informacion;
 
-        console.log(informacion)
+        console.log(strWebsite)
 
     return (
         <div>
@@ -51,15 +42,15 @@ export default function Info({informacion}) {
                 <div className="social-content">
 
                 <div className="rrss">
-                    <a href={ strFacebook } target="_blank"><img src={fb} className="social-img" /></a>
+                    <a href={strFacebook} target="_blank"><img src={fb} className="social-img" /></a>
                 </div>
 
                 <div className="rrss">
-                    <a href={ strTwitter } target="_blank"><img src={twitter} className="social-img" /></a>
+                    <a href={strTwitter} target="_blank"><img src={twitter} className="social-img" /></a>
                 </div>
 
                 <div className="rrss">
-                    <a href={ strWebsite } target="_blank"><img src={www} className="social-img" /></a>
+                    <a href={strWebsite} target="_blank"><img src={www} className="social-img" /></a>
                 </div>
             
                 </div>

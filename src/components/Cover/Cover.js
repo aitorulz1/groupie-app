@@ -16,6 +16,11 @@ export default function Cover({form, guardarForm}) {
             }
         }
 
+
+
+        
+
+
     return (
        
             <div className="cover-content">
@@ -52,7 +57,7 @@ export default function Cover({form, guardarForm}) {
                             name="check" 
                             value="check" 
                             onClick={gotoForm}
-                            /*onClick={setTimeout(gotoForm, 3000)}*/
+                            
                         />
                         
                         <div class="indicator"></div>
